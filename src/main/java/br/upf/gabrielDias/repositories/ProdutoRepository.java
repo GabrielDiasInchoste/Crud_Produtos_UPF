@@ -3,11 +3,11 @@ package br.upf.gabrielDias.repositories;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import br.upf.gabrielDias.dto.ProdutosDTO;
+import br.upf.gabrielDias.entity.ProdutoEntity;
 
 @Repository
-public interface ProdutoRepository extends JpaRepository<ProdutosDTO, String> {
+public interface ProdutoRepository extends JpaRepository<ProdutoEntity, String> {
 
-	ProdutosDTO findById(Integer id);
+	ProdutoEntity findById(Integer id);
 	
 }
