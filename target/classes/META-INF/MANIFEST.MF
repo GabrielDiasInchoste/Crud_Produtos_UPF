@@ -4,6 +4,7 @@ Implementation-Version: 0.0.1-SNAPSHOT
 Built-By: gabriel.inchoste
 Implementation-Vendor-Id: GabrielDias
 Build-Jdk: 1.8.0_211
-Implementation-URL: http://maven.apache.org
+Implementation-URL: http://projects.spring.io/spring-boot/UPF/
 Created-By: Maven Integration for Eclipse
+Implementation-Vendor: Pivotal Software, Inc.
 
