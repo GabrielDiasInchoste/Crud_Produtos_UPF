@@ -27,33 +27,25 @@ public class ProdutosController {
 	private ProdutosService produtosService;
 
 	@GetMapping(value = "produtos/{produtoId}", produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<ProdutoEntity> getProduto(@PathVariable(value = "produtoId") Integer produtoId) {
+	public ResponseEntity<ProdutoEntity> getProduto(@PathVariable(value = "produtoId") Integer produtoId) throws Exception {
 		
 		return ResponseEntity.status(HttpStatus.OK).contentType(MediaType.APPLICATION_JSON).body(produtosService.getProduto(produtoId));
 	}
 
-	@GetMapping(value = "produtos", produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<ProdutoEntity> testProduto(@RequestBody @Valid ProdutoEntity produto) {
-		System.out.println("AKI CARAIO");
-
-		return ResponseEntity.status(HttpStatus.CREATED).contentType(MediaType.APPLICATION_JSON).body(produto);
-	}
-	
 	@PostMapping(value = "produtos", produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<ProdutoEntity> postProduto(@RequestBody @Valid ProdutoEntity produto) {
-		System.out.println("AKI CARAIO");
+	public ResponseEntity<ProdutoEntity> postProduto(@RequestBody @Valid ProdutoEntity produto) throws Exception {
 		return ResponseEntity.status(HttpStatus.CREATED).contentType(MediaType.APPLICATION_JSON).body(produtosService.postProduto(produto));
 	}
 
 	@PutMapping(value = "produtos/{produtoId}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<ProdutoEntity> putProduto(@PathVariable(value = "produtoId") Integer produtoId,
-													@RequestBody @Valid ProdutoEntity produto) {
+													@RequestBody @Valid ProdutoEntity produto) throws Exception {
 		
 		return ResponseEntity.status(HttpStatus.OK).contentType(MediaType.APPLICATION_JSON).body(produtosService.putProduto(produtoId,produto));
 	}
 
 	@DeleteMapping(value = "produtos/{produtoId}")
-	public ResponseEntity<Void> deleteProduto(@PathVariable(value = "produtoId") Integer produtoId) {
+	public ResponseEntity<Void> deleteProduto(@PathVariable(value = "produtoId") Integer produtoId) throws Exception {
 		
 		produtosService.deleteProduto(produtoId);
 		return ResponseEntity.noContent().build();
