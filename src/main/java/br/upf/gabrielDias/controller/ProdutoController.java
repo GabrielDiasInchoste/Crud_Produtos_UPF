@@ -16,35 +16,35 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.upf.gabrielDias.entity.ProdutoEntity;
-import br.upf.gabrielDias.services.ProdutosService;
+import br.upf.gabrielDias.services.ProdutoService;
 
 @RestController
 @RequestMapping("/v1/")
-public class ProdutosController {
+public class ProdutoController {
 
-	
 	@Autowired
-	private ProdutosService produtosService;
+	private ProdutoService produtosService;
 
-	@GetMapping(value = "produtos/{produtoId}", produces = MediaType.APPLICATION_JSON_VALUE)
+	@GetMapping(value = "produto/{produtoId}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<ProdutoEntity> getProduto(@PathVariable(value = "produtoId") Integer produtoId) throws Exception {
 		
 		return ResponseEntity.status(HttpStatus.OK).contentType(MediaType.APPLICATION_JSON).body(produtosService.getProduto(produtoId));
 	}
 
-	@PostMapping(value = "produtos", produces = MediaType.APPLICATION_JSON_VALUE)
+	@PostMapping(value = "produto", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<ProdutoEntity> postProduto(@RequestBody @Valid ProdutoEntity produto) throws Exception {
+		
 		return ResponseEntity.status(HttpStatus.CREATED).contentType(MediaType.APPLICATION_JSON).body(produtosService.postProduto(produto));
 	}
 
-	@PutMapping(value = "produtos/{produtoId}", produces = MediaType.APPLICATION_JSON_VALUE)
+	@PutMapping(value = "produto/{produtoId}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<ProdutoEntity> putProduto(@PathVariable(value = "produtoId") Integer produtoId,
 													@RequestBody @Valid ProdutoEntity produto) throws Exception {
 		
 		return ResponseEntity.status(HttpStatus.OK).contentType(MediaType.APPLICATION_JSON).body(produtosService.putProduto(produtoId,produto));
 	}
 
-	@DeleteMapping(value = "produtos/{produtoId}")
+	@DeleteMapping(value = "produto/{produtoId}")
 	public ResponseEntity<Void> deleteProduto(@PathVariable(value = "produtoId") Integer produtoId) throws Exception {
 		
 		produtosService.deleteProduto(produtoId);
