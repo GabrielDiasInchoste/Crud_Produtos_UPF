@@ -79,7 +79,7 @@ public class ProdutoService {
 		if(produto.getQuantidade() < 0 ){
 			throw new Exception("Quantidade menor que 0");
 		}
-		if(produto.getPreco() < 0){
+		if( produto.getPreco() < 0){
 			throw new Exception("Preco menor que 0");
 		}
 	}

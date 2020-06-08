@@ -16,6 +16,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableJpaRepositories(basePackages = { "br.upf.gabrielDias.repositories" })
 @ComponentScan(basePackages = {"br.upf.gabrielDias.controller", "br.upf.gabrielDias.services"})
 public class ApplicationConfig {
+	
     public static void main( String[] args )
     {
         SpringApplication.run(ApplicationConfig.class, args);
